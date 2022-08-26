@@ -12,6 +12,7 @@ pipeline{
             steps{
                 sh '''
                 docker build -t sample:${BUILD_NUMBER} .
+                docker rm -f sample
                 docker run --name sample -d -p 80:8081 sample:${BUILD_NUMBER}
                 '''
             }

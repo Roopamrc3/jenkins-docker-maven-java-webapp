@@ -10,5 +10,5 @@ RUN java -version
 RUN mv apache-tomcat-8.5.40/* /opt/tomcat/.
 COPY ./sample.war /opt/tomcat/webapps
 WORKDIR /opt/tomcat/webapps
-EXPOSE 8080
+EXPOSE 8081
 CMD ["/opt/tomcat/bin/catalina.sh","run"]

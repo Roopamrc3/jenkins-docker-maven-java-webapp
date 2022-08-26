@@ -3,6 +3,12 @@ pipeline{
     agent any
     
     stages{
+            stage('Initialize')
+    {
+        def dockerHome = tool 'MyDocker'
+        def mavenHome  = tool 'MyMaven'
+        env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
+    }
         stage('SCM'){
             steps{
                 git 'https://github.com/Roopamrc3/jenkins-docker-maven-java-webapp'

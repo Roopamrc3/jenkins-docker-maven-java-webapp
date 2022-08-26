@@ -11,8 +11,8 @@ pipeline{
         stage('Run Task'){
             steps{
                 sh '''
-                sudo docker build -t sample:${BUILD_NUMBER} .
-                sudo docker run --name sample -d -p 80:8081 sample:${BUILD_NUMBER}
+                docker build -t sample:${BUILD_NUMBER} .
+                docker run --name sample -d -p 80:8081 sample:${BUILD_NUMBER}
                 '''
             }
         }

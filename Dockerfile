@@ -8,7 +8,7 @@ RUN tar -xzvf apache*.tar.gz
 RUN apt-get install openjdk-8-jdk -y
 RUN java -version
 RUN mv apache-tomcat-8.5.40/* /opt/tomcat/.
-COPY ./war /opt/tomcat/webapps
+COPY ./sample.war /opt/tomcat/webapps
 WORKDIR /opt/tomcat/webapps
 EXPOSE 8080
 CMD ["/opt/tomcat/bin/catalina.sh","run"]

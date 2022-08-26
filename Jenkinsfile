@@ -8,9 +8,12 @@ pipeline{
                 git 'https://github.com/keshavmlsaini/jenkins-docker-maven-java-webapp.git'
             }
         }
-        stage('Build by Maven'){
+        stage('Run Task'){
             steps{
-                sh 'mvn clean package'
+                sh '''
+                docker build -t sample:${BUILD_NUMBER} .
+                docker run --name sample -d -p 80:8081 sample:${BUILD_NUMBER}
+                '''
             }
         }
     }
